@@ -42,7 +42,8 @@ module BitBucket
     #POST a new key
     # params should be in format {key: "", label:""}
     def new_key(accountname, params)
-      response = post_request("/1.0/users/#{accountname}/ssh-keys/", params)
+      options = { headers: { "Content-Type" => "application/json" } }
+      response = post_request("/1.0/users/#{accountname}/ssh-keys/", params, options)
     end
 
     #DELETE a key
