@@ -3,13 +3,13 @@
 module BitBucket
   class Users::Account < API
 
-    # API about users/account , please refer to 
+    # API about users/account , please refer to
     # https://confluence.atlassian.com/display/BITBUCKET/account+Resource
-    #  
+    #
 
 
     # GET the account profile
-    # 
+    #
     def profile(accountname)
       response = get_request("/1.0/users/#{accountname}")
     end
@@ -36,19 +36,19 @@ module BitBucket
 
     #GET the keys
     def keys(accountname)
-      response = get_request("/1.0/users/#{accountname}/ssh-keys")
+      response = get_request("/2.0/users/#{accountname}/ssh-keys")
     end
 
     #POST a new key
     # params should be in format {key: "", label:""}
     def new_key(accountname, params)
       options = { headers: { "Content-Type" => "application/json" } }
-      response = post_request("/1.0/users/#{accountname}/ssh-keys/", params, options)
+      response = post_request("/2.0/users/#{accountname}/ssh-keys/", params, options)
     end
 
     #DELETE a key
     def delete_key(accountname, key_id)
-      response = delete_request("/1.0/users/#{accountname}/ssh-keys/#{key_id}")
+      response = delete_request("/2.0/users/#{accountname}/ssh-keys/#{key_id}")
     end
   end # Users::Account
 end # BitBucket
