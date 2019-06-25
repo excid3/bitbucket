@@ -11,27 +11,27 @@ module BitBucket
     # GET the account profile
     #
     def profile(accountname)
-      response = get_request("/1.0/users/#{accountname}")
+      response = get_request("/2.0/users/#{accountname}")
     end
 
     # GET the account plan
     def plan(accountname)
-      response = get_request("/1.0/users/#{accountname}/plan")
+      response = get_request("/2.0/users/#{accountname}/plan")
     end
 
     # GET the emails
     def emails(accountname)
-      response = get_request("/1.0/users/#{accountname}/emails")
+      response = get_request("/2.0/users/#{accountname}/emails")
     end
 
     # GET the followers
     def followers(accountname)
-      response = get_request("/1.0/users/#{accountname}/followers")
+      response = get_request("/2.0/users/#{accountname}/followers")
     end
 
     # GET the events
     def events(accountname)
-      response = get_request("/1.0/users/#{accountname}/events")
+      response = get_request("/2.0/users/#{accountname}/events")
     end
 
     #GET the keys
